@@ -52,13 +52,14 @@ $(function(){
   }); 
 
   let layer = layui.layer;
+  
   // 注册功能
   $('.reg-form').on('submit',function(e){
     e.preventDefault()
 
     let data = $(this).serialize()
 
-    axios.post('http://ajax.frontend.itheima.net/api/reguser',data).then((res) =>{
+    axios.post('/api/reguser',data).then((res) =>{
       // console.log(res);
 
       if(res.data.status !== 0){
@@ -75,7 +76,7 @@ $(function(){
     e.preventDefault()
 
     let data = $(this).serialize()
-    axios.post('http://ajax.frontend.itheima.net/api/login',data).then((res) => {
+    axios.post('/api/login',data).then((res) => {
       // console.log(res);
 
       if(res.data.status !== 0){
@@ -87,4 +88,5 @@ $(function(){
       location.href = 'index.html'
     })
   })
+  
 })
